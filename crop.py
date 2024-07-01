@@ -24,7 +24,7 @@ def crop_image(image, coords):
 def display_image_window(root, image, file_path, callback):
     window = tk.Toplevel(root)
     window.title("Image Cropper")
-    info_label = tk.Label(window, text="Select the cropping area with your mouse", font=('Arial', 12), bg='#007BFF', fg='white')
+    info_label = tk.Label(window, text="Select the cropping area with your mouse.\nYou can click OK directly to send the full image.", font=('Arial', 12), bg='#007BFF', fg='white')
     info_label.pack(pady=10)
     tk_image = ImageTk.PhotoImage(image)
     canvas = tk.Canvas(window, width=image.width, height=image.height)
