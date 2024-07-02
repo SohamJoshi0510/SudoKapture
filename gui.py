@@ -44,8 +44,8 @@ def create_gui(board, initial_board):
 
         # Save the current board state for reset
         board_snapshot = [row[:] for row in board]
-        if is_valid_interpretation(board):
-            if solve_sudoku(board):
+        if solve_sudoku(board):
+            if is_valid_interpretation(board):
                 for i in range(9):
                     for j in range(9):
                         entries[i][j].config(state='normal')
@@ -54,9 +54,9 @@ def create_gui(board, initial_board):
                         entries[i][j].config(state='disabled')
                 solve_button.config(state='disabled')
             else:
-                messagebox.showinfo("No Solution", "No unique solution exists.")
+                messagebox.showinfo("Invalid interpretation", "Invalid interpretation(fails to follow the rules of Sudoku).")
         else:
-            messagebox.showinfo("Invalid interpretation", "Invalid interpretation(fails to follow the rules of Sudoku).")
+            messagebox.showinfo("No Solution", "No unique solution exists.")
 
     def reset_board():
         global solve_clicked, board_snapshot
