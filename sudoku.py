@@ -37,6 +37,8 @@ def is_valid_interpretation(board):
         seen = set()
         for col in range(9):
             num = board[row][col]
+            if num > 9:
+                return False
             if num != 0:
                 if num in seen:
                     return False
@@ -46,6 +48,8 @@ def is_valid_interpretation(board):
     for col in range(9):
         seen = set()
         for row in range(9):
+            if num > 9:
+                return False
             num = board[row][col]
             if num != 0:
                 if num in seen:
@@ -59,6 +63,8 @@ def is_valid_interpretation(board):
             for i in range(3):
                 for j in range(3):
                     num = board[3 * box_row + i][3 * box_col + j]
+                    if num > 9:
+                        return False
                     if num != 0:
                         if num in seen:
                             return False
